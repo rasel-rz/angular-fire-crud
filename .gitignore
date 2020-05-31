@@ -46,4 +46,5 @@ testem.log
 Thumbs.db
 
 # Dont upload my API
-/src/environment
+src/environments/environment.prod.ts
+src/environments/environment.ts
