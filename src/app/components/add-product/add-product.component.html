@@ -1,0 +1,88 @@
+<form (ngSubmit)="onSubmit(AddProductForm.value)" [formGroup]="AddProductForm">
+  <div class="card border-success">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">@</div>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Product Name"
+              formControlName="name"
+              required
+            />
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">+</div>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Product Unit"
+              formControlName="unit"
+              required
+            />
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">#</div>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Product Description"
+              formControlName="description"
+              required
+            />
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">$</div>
+            </div>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Product Price"
+              formControlName="price"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="text-right">
+            <button
+              type="submit"
+              [disabled]="AddProductForm.invalid"
+              class="btn btn-lg btn-success"
+            >
+              Add
+            </button>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="text-left">
+            <button
+              type="reset"
+              [disabled]="!AddProductForm.dirty"
+              class="btn btn-lg btn-danger"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

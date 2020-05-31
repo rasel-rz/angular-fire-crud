@@ -1,0 +1,15 @@
+.delete {
+  float: right;
+  cursor: pointer;
+  color: red;
+}
+
+.edit {
+  float: left;
+  cursor: pointer;
+  color: white;
+}
+
+.card-footer {
+  color: rgb(200, 200, 200);
+}
