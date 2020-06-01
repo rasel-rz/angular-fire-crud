@@ -1,0 +1,18 @@
+.outline-adjust:hover > i {
+  color: white;
+}
+.outline-adjust:hover > span {
+  color: white;
+}
+
+.outline-adjust > i {
+  color: green;
+}
+
+.outline-adjust > span {
+  color: black;
+}
+
+.right > i {
+  cursor: pointer;
+}

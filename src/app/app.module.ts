@@ -12,6 +12,10 @@ import { ProductService } from "./service/product.service";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { AddProductComponent } from "./components/add-product/add-product.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { AdminPanelComponent } from "./components/admin-panel/admin-panel.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatDialogModule, MatSnackBarModule } from "@angular/material";
+import { NotificationService } from "./service/notification.service";
 
 @NgModule({
   declarations: [
@@ -19,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     ProductsComponent,
     NavbarComponent,
     AddProductComponent,
+    AdminPanelComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,8 +32,12 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatSnackBarModule,
   ],
-  providers: [ProductService],
+  providers: [ProductService, NotificationService],
   bootstrap: [AppComponent],
+  entryComponents: [AddProductComponent],
 })
 export class AppModule {}

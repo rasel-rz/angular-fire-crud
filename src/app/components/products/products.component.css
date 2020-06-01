@@ -1,13 +1,7 @@
-.delete {
+.cart {
   float: right;
   cursor: pointer;
   color: red;
-}
-
-.edit {
-  float: left;
-  cursor: pointer;
-  color: white;
 }
 
 .card-footer {

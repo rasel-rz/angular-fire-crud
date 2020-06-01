@@ -1,11 +1,28 @@
+<div class="row rem1 no-gutters">
+  <div class="col-10">
+    <h2>Product Entry</h2>
+  </div>
+  <div class="col-2 text-right">
+    <span
+      class="btn btn-outline-danger"
+      style="text-align: right; margin-left: auto;"
+      (click)="onClose()"
+      ><i class="fa fa-times"></i
+    ></span>
+  </div>
+</div>
+
 <form (ngSubmit)="onSubmit(AddProductForm.value)" [formGroup]="AddProductForm">
+  <input type="hidden" formControlName="id" />
   <div class="card border-success">
     <div class="card-body">
       <div class="row">
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <div class="input-group">
+          <div class="input-group" title="Name">
             <div class="input-group-prepend">
-              <div class="input-group-text">@</div>
+              <div class="input-group-text">
+                <i class="fa fa-tag"></i>
+              </div>
             </div>
             <input
               type="text"
@@ -17,9 +34,11 @@
           </div>
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <div class="input-group">
+          <div class="input-group" title="Unit">
             <div class="input-group-prepend">
-              <div class="input-group-text">+</div>
+              <div class="input-group-text">
+                <i class="fa fa-neuter"></i>
+              </div>
             </div>
             <input
               type="text"
@@ -31,9 +50,11 @@
           </div>
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <div class="input-group">
+          <div class="input-group" title="Description">
             <div class="input-group-prepend">
-              <div class="input-group-text">#</div>
+              <div class="input-group-text">
+                <i class="fa fa-paragraph"></i>
+              </div>
             </div>
             <input
               type="text"
@@ -45,9 +66,11 @@
           </div>
         </div>
         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <div class="input-group">
+          <div class="input-group" title="Price">
             <div class="input-group-prepend">
-              <div class="input-group-text">$</div>
+              <div class="input-group-text">
+                <i class="fa fa-dollar"></i>
+              </div>
             </div>
             <input
               type="number"
@@ -67,16 +90,17 @@
               [disabled]="AddProductForm.invalid"
               class="btn btn-lg btn-success"
             >
-              Add
+              Save
             </button>
           </div>
         </div>
         <div class="col-6">
           <div class="text-left">
             <button
-              type="reset"
+              type="button"
               [disabled]="!AddProductForm.dirty"
               class="btn btn-lg btn-danger"
+              (click)="clearForm()"
             >
               Clear
             </button>

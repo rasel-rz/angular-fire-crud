@@ -8,17 +8,17 @@
       <div class="card-header">{{ product.id }}</div>
       <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
-        <p class="card-text">{{ product.description }}</p>
+        <p class="card-text description">{{ product.description }}</p>
         <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
       </div>
       <div class="card-footer">
-        <span title="Edit" (click)="editProduct(product)" class="edit"
+        <!-- <span title="Edit" (click)="editProduct(product)" class="edit"
           ><i class="fa fa-pencil"></i
-        ></span>
+        ></span> -->
         <span>{{ product.price }} BDT</span>
 
-        <span title="Delete" (click)="deleteProduct(product)" class="delete"
-          ><i class="fa fa-trash"></i
+        <span title="Add to Cart" (click)="addToCart(product)" class="cart"
+          ><i class="fa fa-cart-plus"></i
         ></span>
       </div>
     </div>

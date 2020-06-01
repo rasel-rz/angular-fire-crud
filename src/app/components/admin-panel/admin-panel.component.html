@@ -1,0 +1,50 @@
+<div class="lead">
+  <span><b>Products List</b></span>
+  <span
+    (click)="addProduct()"
+    class="right btn btn-outline-success outline-adjust"
+  >
+    <i class="fa fa-plus"></i> &nbsp; <span>Add New Product</span>
+  </span>
+</div>
+<hr />
+<div *ngIf="products?.length > 0; else noProduct">
+  <div class="row">
+    <div class="col-12">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let product of products">
+          <div>
+            <span>
+              <strong>{{ product.name }} </strong>
+            </span>
+            <span class="text-muted"> ({{ product.unit }}) </span>
+
+            <span class="right">
+              <i
+                (click)="editProduct(product)"
+                title="Edit"
+                class="fa fa-pencil"
+              ></i>
+              &nbsp;
+              <i
+                (click)="deleteProduct(product)"
+                title="Delete"
+                class="fa fa-trash"
+              ></i>
+            </span>
+          </div>
+          <div>
+            <span class="description">{{ product.description }}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<ng-template #noProduct>
+  <hr />
+  <h5 class="text-danger text-center">
+    No Product found on the DB.
+  </h5>
+</ng-template>

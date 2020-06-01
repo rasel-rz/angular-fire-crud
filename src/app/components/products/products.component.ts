@@ -18,11 +18,7 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  deleteProduct(product: Product) {
-    this.ps.deleteProduct(product);
-  }
-
-  editProduct(product: Product) {
-    // Need to refill the form. Don't know how to do that!
+  addToCart(product: Product) {
+    // Add to cart functionally!
   }
 }

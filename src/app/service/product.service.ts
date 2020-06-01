@@ -8,6 +8,7 @@ import {
 import { Product } from "../models/product.model";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
+import { NotificationService } from "./notification.service";
 
 @Injectable({
   providedIn: "root",
