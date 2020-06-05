@@ -16,9 +16,10 @@ import { AdminPanelComponent } from "./components/admin-panel/admin-panel.compon
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatDialogModule, MatSnackBarModule } from "@angular/material";
 import { NotificationService } from "./service/notification.service";
-import { ViewProductComponent } from './components/view-product/view-product.component';
-import { CartComponent } from './components/cart/cart.component';
-import { GoPreviousPageComponent } from './components/go-previous-page/go-previous-page.component';
+import { ViewProductComponent } from "./components/view-product/view-product.component";
+import { CartComponent } from "./components/cart/cart.component";
+import { GoPreviousPageComponent } from "./components/go-previous-page/go-previous-page.component";
+import { CartService } from "./service/cart.service";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { GoPreviousPageComponent } from './components/go-previous-page/go-previo
     MatDialogModule,
     MatSnackBarModule,
   ],
-  providers: [ProductService, NotificationService],
+  providers: [ProductService, NotificationService, CartService],
   bootstrap: [AppComponent],
   entryComponents: [AddProductComponent],
 })
