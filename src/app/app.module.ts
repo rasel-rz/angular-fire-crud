@@ -16,6 +16,9 @@ import { AdminPanelComponent } from "./components/admin-panel/admin-panel.compon
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatDialogModule, MatSnackBarModule } from "@angular/material";
 import { NotificationService } from "./service/notification.service";
+import { ViewProductComponent } from './components/view-product/view-product.component';
+import { CartComponent } from './components/cart/cart.component';
+import { GoPreviousPageComponent } from './components/go-previous-page/go-previous-page.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { NotificationService } from "./service/notification.service";
     NavbarComponent,
     AddProductComponent,
     AdminPanelComponent,
+    ViewProductComponent,
+    CartComponent,
+    GoPreviousPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -41,6 +41,10 @@ export class ProductService {
     return this.products;
   }
 
+  getProduct(id: string) {
+    return this.afs.doc("products/" + id).valueChanges();
+  }
+
   addProduct(product: Product) {
     this.productsCollection.add(product);
   }

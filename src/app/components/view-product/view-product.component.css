@@ -1,0 +1,15 @@
+.cart {
+  float: right;
+  cursor: pointer;
+  color: red;
+}
+
+.cart:hover {
+  float: right;
+  cursor: pointer;
+  color: black;
+}
+
+.bigger {
+  font-size: larger;
+}

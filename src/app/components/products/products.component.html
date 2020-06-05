@@ -1,32 +1,53 @@
-<div *ngIf="products?.length > 0; else noProduct"></div>
-<div class="row">
-  <div
-    class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3"
-    *ngFor="let product of products"
-  >
-    <div class="card text-center bg-info">
-      <div class="card-header">{{ product.id }}</div>
-      <div class="card-body">
-        <h5 class="card-title">{{ product.name }}</h5>
-        <p class="card-text description">{{ product.description }}</p>
-        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-      </div>
-      <div class="card-footer">
-        <!-- <span title="Edit" (click)="editProduct(product)" class="edit"
+<div *ngIf="!isLoading">
+  <div *ngIf="products?.length > 0; else noProduct">
+    <div class="row">
+      <div
+        class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3"
+        *ngFor="let product of products"
+      >
+        <div class="card text-center bg-info">
+          <div
+            class="card-header viewDetais"
+            title="View Details"
+            (click)="viewProduct(product)"
+          >
+            {{ product.id }}
+          </div>
+          <div
+            class="card-body viewDetais"
+            title="View Details"
+            (click)="viewProduct(product)"
+          >
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p [title]="product.description" class="card-text description">
+              {{ product.description }}
+            </p>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          </div>
+          <div class="card-footer">
+            <!-- <span title="Edit" (click)="editProduct(product)" class="edit"
           ><i class="fa fa-pencil"></i
         ></span> -->
-        <span>{{ product.price }} BDT</span>
+            <span
+              class="viewDetais"
+              title="View Details"
+              (click)="viewProduct(product)"
+              >{{ product.price }} BDT</span
+            >
 
-        <span title="Add to Cart" (click)="addToCart(product)" class="cart"
-          ><i class="fa fa-cart-plus"></i
-        ></span>
+            <span title="Add to Cart" (click)="addToCart(product)" class="cart"
+              ><i class="fa fa-cart-plus"></i
+            ></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  <ng-template #noProduct>
+    <hr />
+    <h5 class="text-danger text-center">
+      No Product found on the DB.
+    </h5>
+  </ng-template>
 </div>
-<ng-template #noProduct>
-  <hr />
-  <h5 class="text-danger text-center">
-    No Product found on the DB.
-  </h5>
-</ng-template>
+<div *ngIf="isLoading" class="text-center text-danger"><h1>Loading</h1></div>

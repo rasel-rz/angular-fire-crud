@@ -10,11 +10,20 @@ body {
 }
 
 .description {
-  overflow: hidden;
+  /* overflow: hidden;
   display: inline-block;
   white-space: nowrap;
-  width: 100%;
+  width: 100%; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }
+
+/* .description::after {
+  content: "...";
+} */
 
 .right {
   float: right;

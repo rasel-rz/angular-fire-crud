@@ -1,0 +1,13 @@
+.back {
+  margin-bottom: 1rem;
+  font-size: larger;
+}
+
+.back > span {
+  cursor: pointer;
+}
+
+.back > span:hover {
+  border-radius: 5px;
+  border: 1px solid red;
+}

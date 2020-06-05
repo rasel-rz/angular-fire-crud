@@ -3,6 +3,7 @@ import { Product } from "src/app/models/product.model";
 import { FormGroup, FormControl } from "@angular/forms";
 import { ProductService } from "src/app/service/product.service";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
+import { NotificationService } from "src/app/service/notification.service";
 
 @Component({
   selector: "app-add-product",
@@ -18,6 +19,7 @@ export class AddProductComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public product: Product,
     private ps: ProductService,
+    private ns: NotificationService,
     private dialogRef: MatDialogRef<AddProductComponent>
   ) {}
 
@@ -53,8 +55,10 @@ export class AddProductComponent implements OnInit {
     // return;
     if (this.isEdit) {
       this.ps.updateProduct(form as Product);
+      this.ns.warning("Product updated successfully.");
     } else {
       this.ps.addProduct(form as Product);
+      this.ns.success("New product entry successfull.");
     }
     this.AddProductForm.reset();
     this.onClose();

@@ -53,6 +53,6 @@ export class AdminPanelComponent implements OnInit {
 
   deleteProduct(product: Product) {
     this.ps.deleteProduct(product);
-    // this.ns.error("Deleted!");
+    this.ns.error('Product "' + product.name + '" deleted!');
   }
 }

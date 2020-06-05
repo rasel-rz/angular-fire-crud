@@ -1,0 +1,47 @@
+<app-go-previous-page></app-go-previous-page>
+<div *ngIf="!isLoading" class="card text-left bigger">
+  <div class="card-body">
+    <p class="card-title h1">{{ product.name }}</p>
+    <hr />
+    <p class="card-text">{{ product.description }}</p>
+    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+  </div>
+  <div class="card-footer">
+    <!-- <span title="Edit" (click)="editProduct(product)" class="edit"
+        ><i class="fa fa-pencil"></i
+      ></span> -->
+    <div class="text-muted"><strong>Unit: </strong> {{ product.unit }}</div>
+    <hr />
+    <div>
+      <strong>Price: </strong>
+      <span class="text-info">{{ product.price }} BDT</span>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-8 text-left">
+        <strong>Stock: </strong>
+        <span class="text-success">99</span> (available)
+      </div>
+
+      <div class="input-group col-4 text-right" title="Quantity">
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Quantity"
+          required
+          [(ngModel)]="quantity"
+          name="Quantity"
+        />
+        <div class="input-group-append" (click)="addToCart(product, quantity)">
+          <div class="input-group-text">
+            <span title="Add to Cart" class="cart"
+              ><i class="fa fa-cart-plus"></i
+            ></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center text-danger" *ngIf="isLoading"><h1>Loading</h1></div>

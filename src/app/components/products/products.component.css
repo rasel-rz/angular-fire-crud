@@ -4,6 +4,20 @@
   color: red;
 }
 
+.cart:hover {
+  float: right;
+  cursor: pointer;
+  color: white;
+}
+
+.viewDetais {
+  cursor: pointer;
+}
+
 .card-footer {
   color: rgb(200, 200, 200);
+}
+
+.card {
+  margin-bottom: 1rem;
 }
