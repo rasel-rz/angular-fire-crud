@@ -9,7 +9,7 @@ export class CartService {
   cartCount: number;
   cartTotalPrice: number;
   constructor() {
-    this.cart = new Array<Cart>();
+    this.cart = [];
   }
 
   loadCart(): Cart[] {
@@ -74,6 +74,7 @@ export class CartService {
   checkIfItemExist(item: Cart, list: Cart[]): boolean {
     // console.log(item, list);
     if (list == null) {
+      this.cart = [];
       return false;
     } else {
       if (list.length < 1) {
@@ -85,6 +86,7 @@ export class CartService {
         }
         return false;
       } else {
+        this.cart = [];
         return false;
       }
     }
