@@ -3,7 +3,14 @@
     <h1>
       0n1in3 St0r3
       <a [routerLink]="'cart'">
-        <i class="fa fa-cart-arrow-down cart-icon"></i>
+        <i class="fa fa-cart-arrow-down cart-icon">
+          <span
+            id="cartCountBadge"
+            *ngIf="this.cs.cartCount > 0"
+            class="badge badge-light"
+            >{{ this.cs.cartCount }}</span
+          >
+        </i>
       </a>
     </h1>
   </a>

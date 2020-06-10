@@ -1,3 +1,22 @@
 .bigger {
   font-size: larger;
 }
+
+.cart-product {
+  border-bottom: 2px dotted #007bff;
+}
+
+.input-group-text {
+  background-color: #c8c8c8;
+  border-radius: 10px;
+}
+
+.input-group-text:hover {
+  background-color: #007bff;
+  border-radius: 10px;
+  color: white;
+}
+
+.disabled {
+  pointer-events: none;
+}

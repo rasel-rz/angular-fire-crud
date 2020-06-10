@@ -48,6 +48,7 @@
     "no-output-on-prefix": true,
     "no-output-rename": true,
     "no-string-literal": false,
+    "prefer-for-of": false,
     "no-outputs-metadata-property": true,
     "template-banana-in-box": true,
     "template-no-negated-async": true,

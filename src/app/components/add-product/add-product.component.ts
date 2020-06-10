@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from "@angular/core";
 import { Product } from "src/app/models/product.model";
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { ProductService } from "src/app/service/product.service";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { NotificationService } from "src/app/service/notification.service";
@@ -26,10 +26,19 @@ export class AddProductComponent implements OnInit {
   ngOnInit() {
     this.AddProductForm = new FormGroup({
       id: new FormControl(null),
-      name: new FormControl(null),
-      description: new FormControl(null),
+      name: new FormControl(null, [
+        Validators.required,
+        Validators.pattern(new RegExp("^[^\\s].*")),
+      ]),
+      description: new FormControl(null, [
+        Validators.required,
+        Validators.pattern(new RegExp("^[^\\s].*")),
+      ]),
       price: new FormControl(null),
-      unit: new FormControl(null),
+      unit: new FormControl(null, [
+        Validators.required,
+        Validators.pattern(new RegExp("^[^\\s].*")),
+      ]),
       photo: new FormControl(null),
     });
 

@@ -3,3 +3,8 @@
   border: 2px solid white;
   padding: 0.5rem;
 }
+
+#cartCountBadge {
+  float: right;
+  font-size: 0.25em;
+}

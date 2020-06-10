@@ -1,18 +1,63 @@
 <app-go-previous-page></app-go-previous-page>
-<div class="bigger">
+<div class="bigger" *ngIf="this.cs.cart.length > 0">
   <div class="h1">Cart</div>
-  <div class="row no-gutters">
-    <div class="col-2">
-      No.
+  <hr />
+  <div>
+    <div class="row no-gutters cart-product" *ngFor="let item of this.cs.cart">
+      <div
+        class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3"
+        style="padding-right: 1rem;"
+      >
+        <div class="input-group">
+          <div
+            class="input-group-prepend"
+            title="Reduce Quantity"
+            (click)="setQty(item.productId, item.quantity - 1)"
+          >
+            <div class="input-group-text">
+              <span>
+                <i class="fa fa-minus"></i>
+              </span>
+            </div>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Quantity"
+            name="quantity"
+            [value]="item.quantity"
+            readonly
+          />
+          <div
+            class="input-group-append"
+            title="Increase Quantity"
+            (click)="setQty(item.productId, item.quantity + 1)"
+          >
+            <div class="input-group-text">
+              <span>
+                <i class="fa fa-plus"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 col-sm-4 col-md-6 col-lg-6 col-xl-6">
+        <span class="description">
+          {{ item.productName }}
+        </span>
+      </div>
+      <div class="col-3 text-right">
+        {{ item.pricePerUnit * item.quantity }}
+      </div>
     </div>
-    <div class="col-5">
-      Name
-    </div>
-    <div class="col-2">
-      Quantity
-    </div>
-    <div class="col-3">
-      Price
+
+    <div class="row no-gutters font-weight-bold">
+      <div class="col-9 text-right">Total</div>
+      <div class="col-3 text-right">{{ this.cs.cartTotalPrice }}</div>
     </div>
   </div>
+</div>
+
+<div class="text-danger text-center display-4" *ngIf="this.cs.cart.length < 1">
+  Add item to Cart first. <a routerLink="/">Click here</a> to view all products.
 </div>

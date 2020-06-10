@@ -27,6 +27,11 @@
             <input
               type="text"
               class="form-control"
+              [ngClass]="{
+                'is-invalid':
+                  AddProductForm.get('name').invalid &&
+                  AddProductForm.get('name').touched
+              }"
               placeholder="Product Name"
               formControlName="name"
               required
@@ -43,6 +48,11 @@
             <input
               type="text"
               class="form-control"
+              [ngClass]="{
+                'is-invalid':
+                  AddProductForm.get('unit').invalid &&
+                  AddProductForm.get('unit').touched
+              }"
               placeholder="Product Unit"
               formControlName="unit"
               required
@@ -59,6 +69,11 @@
             <input
               type="text"
               class="form-control"
+              [ngClass]="{
+                'is-invalid':
+                  AddProductForm.get('description').invalid &&
+                  AddProductForm.get('description').touched
+              }"
               placeholder="Product Description"
               formControlName="description"
               required
@@ -75,6 +90,11 @@
             <input
               type="number"
               class="form-control"
+              [ngClass]="{
+                'is-invalid':
+                  AddProductForm.get('price').invalid &&
+                  AddProductForm.get('price').touched
+              }"
               placeholder="Product Price"
               formControlName="price"
               required
@@ -106,6 +126,21 @@
             </button>
           </div>
         </div>
+      </div>
+      <div
+        *ngIf="
+          (AddProductForm.get('name').touched &&
+            AddProductForm.get('name').invalid) ||
+          (AddProductForm.get('unit').touched &&
+            AddProductForm.get('unit').invalid) ||
+          (AddProductForm.get('price').touched &&
+            AddProductForm.get('price').invalid) ||
+          (AddProductForm.get('description').touched &&
+            AddProductForm.get('description').invalid)
+        "
+        class="text-danger"
+      >
+        * Fields are required and can not start with a WHITE SPACE.
       </div>
     </div>
   </div>

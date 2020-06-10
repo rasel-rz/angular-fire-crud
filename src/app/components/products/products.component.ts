@@ -3,6 +3,8 @@ import { ProductService } from "src/app/service/product.service";
 import { Product } from "src/app/models/product.model";
 import { NotificationService } from "src/app/service/notification.service";
 import { Router } from "@angular/router";
+import { CartService } from "src/app/service/cart.service";
+import { Cart } from "src/app/models/cart.model";
 
 @Component({
   selector: "app-products",
@@ -16,7 +18,8 @@ export class ProductsComponent implements OnInit {
   constructor(
     private ps: ProductService,
     private ns: NotificationService,
-    private router: Router
+    private router: Router,
+    private cs: CartService
   ) {}
 
   ngOnInit() {
@@ -29,7 +32,13 @@ export class ProductsComponent implements OnInit {
 
   addToCart(product: Product) {
     // Add to cart functionally!
-    this.ns.success(product.name + " added to Cart.");
+    let cartItem: Cart = {
+      productId: product.id,
+      productName: product.name,
+      quantity: 1,
+      pricePerUnit: product.price,
+    };
+    this.cs.addProduct(cartItem);
   }
 
   viewProduct(product: Product) {

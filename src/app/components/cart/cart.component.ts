@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { CartService } from "src/app/service/cart.service";
 import { Cart } from "src/app/models/cart.model";
 
@@ -8,9 +8,19 @@ import { Cart } from "src/app/models/cart.model";
   styleUrls: ["./cart.component.css"],
 })
 export class CartComponent implements OnInit {
-  constructor(private cs: CartService) {}
-  cart: Cart[] = new Array<Cart>();
+  constructor(public cs: CartService) {}
+
+  // cart: Cart[] = new Array<Cart>();
   ngOnInit() {
-    this.cart = this.cs.loadCart();
+    // this.cart = this.cs.loadCart();
+    this.cs.updateCartCount();
+  }
+
+  setQty(productId: string, quantity: number) {
+    if (quantity < 1) {
+      this.cs.deleteProduct(productId);
+    } else {
+      this.cs.updateProduct(productId, quantity);
+    }
   }
 }
