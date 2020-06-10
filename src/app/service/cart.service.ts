@@ -73,6 +73,9 @@ export class CartService {
 
   checkIfItemExist(item: Cart, list: Cart[]): boolean {
     // console.log(item, list);
+    if (list.length < 1) {
+      return false;
+    }
     for (const element of list) {
       if (item.productId === element.productId) {
         // alert("true");
