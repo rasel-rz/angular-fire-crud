@@ -73,7 +73,7 @@ export class CartService {
 
   checkIfItemExist(item: Cart, list: Cart[]): boolean {
     // console.log(item, list);
-    if (list.length < 1) {
+    if (list.length < 1 || list == null) {
       return false;
     }
     for (const element of list) {
