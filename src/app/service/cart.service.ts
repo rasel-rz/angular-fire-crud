@@ -10,6 +10,8 @@ export class CartService {
   cartTotalPrice: number;
   constructor() {
     this.cart = [];
+    this.loadCart();
+    this.updateCartCount();
   }
 
   loadCart(): Cart[] {
@@ -44,7 +46,7 @@ export class CartService {
     this.loadCart();
     let index = -1;
     for (let i = 0; i < this.cart.length; i++) {
-      if (this.cart[i].productId == productId) {
+      if (this.cart[i].productId === productId) {
         index = i;
       }
     }
@@ -56,8 +58,8 @@ export class CartService {
   }
   addProduct(cartItem: Cart) {
     this.loadCart();
-    const itemExists = this.checkIfItemExist(cartItem, this.cart);
-    // alert(itemExists);
+    const itemExists = this.checkIfItemExist(cartItem);
+    console.warn(itemExists);
     if (!itemExists) {
       this.cart.push(cartItem);
       console.log("Product added to cart.");
@@ -71,25 +73,19 @@ export class CartService {
     this.updateSessionStorage(this.cart);
   }
 
-  checkIfItemExist(item: Cart, list: Cart[]): boolean {
-    // console.log(item, list);
-    if (list == null) {
-      this.cart = [];
+  checkIfItemExist(item: Cart): boolean {
+    console.log(item, this.cart);
+    if (this.cart === null || this.cart === undefined || this.cart.length < 1) {
       return false;
-    } else {
-      if (list.length < 1) {
-        for (const element of list) {
-          if (item.productId === element.productId) {
-            // alert("true");
-            return true;
-          }
-        }
-        return false;
-      } else {
-        this.cart = [];
-        return false;
+    }
+    let flag = false;
+    for (let itemInCart of this.cart) {
+      if (itemInCart.productId === item.productId) {
+        flag = true;
+        break;
       }
     }
+    return flag;
   }
 
   updateProduct(productId: string, quantity: number) {
